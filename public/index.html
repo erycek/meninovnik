@@ -58,7 +58,7 @@
                href="https://github.com/erycek/mesacnik"
                data-size="large"
                aria-label="Star erycek/mesacnik on GitHub">
-                Star on GitHub
+                hviedzicka
             </a>
         </h3>
     </div>
@@ -70,7 +70,7 @@
                 const month = new Date().getMonth();
                 const day = new Date().getDate();
                 document.getElementById('name').innerHTML = data[month][day];
-                document.getElementById('current-date').innerHTML = new Date().toLocaleDateString('sk-SK');
+                document.getElementById('current-date').innerHTML = `(${new Date().toLocaleDateString('sk-SK')})`;
             });
     </script>
 </body>
