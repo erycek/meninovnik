@@ -1,13 +1,59 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link href='https://fonts.googleapis.com/css?family=Roboto&display=optional' rel='stylesheet' type='text/css'/>
+    <title>meninovnik</title>
 </head>
-<body>
-<noscript>You need to enable JavaScript to run this app.</noscript>
-<div id="root"></div>
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        background-color: #333;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+    }
 
+    div {
+        width: 50%;
+        margin-left: 25%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    p {
+        opacity: 0.7;
+        font-size: 2rem;
+    }
+
+    h1 {
+        font-size: 10rem;
+    }
+
+    span {
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <div>
+        <p>dnes <span id="current-date"></span> má meniny</p>
+        <h1 id="name"></h1>
+    </div>
+
+    <script>
+        fetch('names.json')
+            .then(response => response.json())
+            .then(data => {
+                const month = new Date().getMonth();
+                const day = new Date().getDate();
+                document.getElementById('name').innerHTML = data[month][day];
+                document.getElementById('current-date').innerHTML = new Date().toLocaleDateString('sk-SK');
+            });
+    </script>
 </body>
 </html>
